@@ -1,0 +1,96 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    width: 90%;
+    max-width: 1100px; /* On élargit ici */
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+
+header { text-align: center; margin-bottom: 40px; }
+.badge { background: #3498db; color: white; display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 12px; margin-bottom: 10px; }
+
+/* Layout en deux colonnes */
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Plan plus large que le formulaire */
+    gap: 50px;
+}
+
+.input-group label { display: block; font-weight: bold; margin-bottom: 15px; color: #2c3e50; }
+input { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #ddd; box-sizing: border-box; }
+
+/* Machroub Grid */
+.machroub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.m-item { background: white; padding: 15px; border-radius: 12px; text-align: center; cursor: pointer; border: 2px solid #eee; transition: 0.3s; }
+.m-item input { display: none; }
+.m-item:has(input:checked) { border-color: #40e0d0; background: #e0fcf9; }
+
+/* Plan de salle agrandi */
+.floor-plan-large {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.table-block { background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.table-surface { background: #3498db; color: white; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; }
+
+.seats-layout {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 places par table au lieu de 4 */
+    gap: 15px;
+}
+
+.seat {
+    aspect-ratio: 1/1;
+    background: #a5eaf9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.seat.occupied { background: #ff7675; color: white; cursor: not-allowed; }
+.seat.selected { background: #00d2d3; color: white; transform: scale(1.1); box-shadow: 0 0 15px rgba(0,210,211,0.5); }
+.seat:hover:not(.occupied) { border: 2px solid #3498db; }
+
+/* Bouton Large */
+.confirm-btn {
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(135deg, #3498db, #00d2d3);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,210,211,0.3);
+}
