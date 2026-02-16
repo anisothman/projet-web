@@ -7,20 +7,20 @@
 </head>
 <body>
 
-<div class="main-wrapper">
-    <div class="glass-container">
+<div >
+    <div >
         <header>
-            <div class="badge pulse">✨ ESPACE VIP</div>
-            <h1 class="fade-in">Réservez votre poste de travail</h1>
-            <p class="subtitle">Un environnement spacieux conçu pour votre productivité.</p>
+            <div >✨ ESPACE VIP</div>
+            <h1 >Réservez votre poste de travail</h1>
+            <p >Un environnement spacieux conçu pour votre productivité.</p>
         </header>
 
-        <form id="bookingForm">
-        <div class="booking-grid">
-            <div class="form-side">
-                <div class="input-group">
-                    <label for="fullName">
-                        <span class="label-icon">👤</span>
+        <form >
+        <div >
+            <div >
+                <div >
+                    <label >
+                        <span class="sigle">👤</span>
                         Informations personnelles
                     </label>
                     <input 
@@ -41,53 +41,53 @@
                         type="tel" 
                         id="phone" 
                         name="phone"
-                        placeholder="Téléphone (optionnel)" 
+                        placeholder="Téléphone " 
                         aria-label="Numéro de téléphone">
                 </div>
                 
-                <div class="input-group">
+                <div class="group">
                     <label>
-                        <span class="label-icon">🍹</span>
+                        <span class="sigle">🍹</span>
                         Votre Machroub préféré
                     </label>
-                    <div class="machroub-grid">
-                        <label class="m-item"><input type="radio" name="m" checked><span>☕ Café</span></label>
-                        <label class="m-item"><input type="radio" name="m"><span>🍵 Thé</span></label>
-                        <label class="m-item"><input type="radio" name="m"><span>🥤 Jus</span></label>
+                    <div class="drinks">
+                        <label class="drink"><input type="radio" name="m" checked><span>☕ Café</span></label>
+                        <label class="drink"><input type="radio" name="m"><span>🍵 Thé</span></label>
+                        <label class="drink"><input type="radio" name="m"><span>🥤 Jus</span></label>
                     </div>
                 </div>
             </div>
 
            
-            <div class="map-side">
+            <div class="map">
                 <label>
-                    <span class="label-icon">🗺️</span>
+                    <span class="sigle">🗺️</span>
                     Plan de salle interactif
                 </label>
                 
                 
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-box free"></div>
+                <div >
+                    <div >
+                        <div></div>
                         <span>Disponible</span>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-box selected"></div>
+                    <div >
+                        <div class="box selected"></div>
                         <span>Sélectionné</span>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-box occupied"></div>
+                    <div class="item">
+                        <div class="box occupied"></div>
                         <span>Occupé</span>
                     </div>
                 </div>
 
-                <div class="floor-plan-large">
-                    <div class="table-block">
-                        <div class="table-surface">
-                            <span class="zone-icon">🌟</span>
+                <div class="plan">
+                    <div >
+                        <div >
+                            <span class="sigle">🌟</span>
                             Zone Alpha
                         </div>
-                        <div class="seats-layout" data-zone="alpha">
+                        <div class="seats" data-zone="alpha">
                             <div class="seat free" data-seat="A1" title="Place A1 - Disponible">A1</div>
                             <div class="seat free" data-seat="A2" title="Place A2 - Disponible">A2</div>
                             <div class="seat occupied" data-seat="A3" title="Place A3 - Occupée">A3</div>
@@ -96,12 +96,12 @@
                             <div class="seat free" data-seat="A6" title="Place A6 - Disponible">A6</div>
                         </div>
                     </div>
-                    <div class="table-block">
-                        <div class="table-surface">
-                            <span class="zone-icon">💎</span>
+                    <div >
+                        <div >
+                            <span >💎</span>
                             Zone Beta
                         </div>
-                        <div class="seats-layout" data-zone="beta">
+                        <div class="seats" data-zone="beta">
                             <div class="seat free" data-seat="B1" title="Place B1 - Disponible">B1</div>
                             <div class="seat free" data-seat="B2" title="Place B2 - Disponible">B2</div>
                             <div class="seat occupied" data-seat="B3" title="Place B3 - Occupée">B3</div>
@@ -112,12 +112,12 @@
                     </div>
 
                 
-                    <div class="table-block">
-                        <div class="table-surface">
-                            <span class="zone-icon">🚀</span>
+                    <div class="table">
+                        <div class="surface">
+                            <span class="sigle">🚀</span>
                             Zone Gamma
                         </div>
-                        <div class="seats-layout" data-zone="gamma">
+                        <div class="seats" data-zone="gamma">
                             <div class="seat free" data-seat="C1" title="Place C1 - Disponible">C1</div>
                             <div class="seat free" data-seat="C2" title="Place C2 - Disponible">C2</div>
                             <div class="seat free" data-seat="C3" title="Place C3 - Disponible">C3</div>
@@ -133,10 +133,10 @@
 
        
         <footer>
-            <button type="submit" form="bookingForm" class="confirm-btn" id="confirmBtn" disabled>
-                <span class="btn-icon">🎯</span>
-                <span class="btn-text">Confirmer la réservation</span>
-                <span class="btn-price">25 DT / Jour</span>
+            <button type="submit"  class="btn" id="confirmBtn" >
+                <span class="sigle">🎯</span>
+                <span class="text">Confirmer la réservation</span>
+                <span class="price">25 DT / Jour</span>
             </button>
         </footer>
     </div>
