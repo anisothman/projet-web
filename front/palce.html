@@ -2,23 +2,74 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Coworking Premium - Grand Espace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de Poste - Espace VIP</title>
     <link rel="stylesheet" href="place.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .page-entiere {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .boite-reservation {
+            background-color: white;
+            width: 90%;
+            max-width: 900px;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: left;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid #f4c430;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
 
-<div >
-    <div >
-        <header>
-            <div >✨ ESPACE VIP</div>
-            <h1 >Réservez votre poste de travail</h1>
-            <p >Un environnement spacieux conçu pour votre productivité.</p>
+<div class="page-entiere">
+    <div class="boite-reservation">
+        <header style="text-align: center; margin-bottom: 30px;">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div style="font-size: 18px; color: #f4c430; font-weight: 600; margin-bottom: 10px;">✨ ESPACE VIP</div>
+            <h1 style="margin: 10px 0; color: #333; font-size: 24px; font-weight: 700;">Réservez votre poste de travail</h1>
+            <p style="color: #777; margin-bottom: 0; font-size: 14px;">Un environnement spacieux conçu pour votre productivité.</p>
         </header>
 
-        <form >
-        <div >
-            <div >
-                <div >
+        <form>
+            <div class="form-container">
+                <div class="section">
+                    <div class="group">
                     <label >
                         <span class="sigle">👤</span>
                         Informations personnelles
@@ -28,21 +79,18 @@
                         id="fullName" 
                         name="fullName"
                         placeholder="Nom complet" 
-                        required
-                        aria-label="Nom complet">
+                        required>
                     <input 
                         type="email" 
                         id="email" 
                         name="email"
                         placeholder="Adresse Email" 
-                        required
-                        aria-label="Adresse email">
+                        required>
                     <input 
                         type="tel" 
                         id="phone" 
                         name="phone"
-                        placeholder="Téléphone " 
-                        aria-label="Numéro de téléphone">
+                        placeholder="Téléphone " >
                 </div>
                 
                 <div class="group">
@@ -65,25 +113,24 @@
                     Plan de salle interactif
                 </label>
                 
-                
-                <div >
-                    <div >
-                        <div></div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="box"></div>
                         <span>Disponible</span>
                     </div>
-                    <div >
+                    <div class="legend-item">
                         <div class="box selected"></div>
                         <span>Sélectionné</span>
                     </div>
-                    <div class="item">
+                    <div class="legend-item">
                         <div class="box occupied"></div>
                         <span>Occupé</span>
                     </div>
                 </div>
 
                 <div class="plan">
-                    <div >
-                        <div >
+                    <div class="zone">
+                        <div class="surface">
                             <span class="sigle">🌟</span>
                             Zone Alpha
                         </div>
@@ -96,9 +143,9 @@
                             <div class="seat free" data-seat="A6" title="Place A6 - Disponible">A6</div>
                         </div>
                     </div>
-                    <div >
-                        <div >
-                            <span >💎</span>
+                    <div class="zone">
+                        <div class="surface">
+                            <span class="sigle">💎</span>
                             Zone Beta
                         </div>
                         <div class="seats" data-zone="beta">
@@ -129,18 +176,15 @@
                 </div>
             </div>
         </div>
-        </form>
 
-       
-        <footer>
-            <button type="submit"  class="btn" id="confirmBtn" >
-                <span class="sigle">🎯</span>
-                <span class="text">Confirmer la réservation</span>
-                <span class="price">25 DT / Jour</span>
-            </button>
-        </footer>
-    </div>
-</div>
+            <footer style="margin-top: 30px; text-align: center; border-top: 1px solid #f1f1f1; padding-top: 20px;">
+                <button type="submit" class="btn" id="confirmBtn" style="width: 100%; padding: 12px; border: none; border-radius: 25px; background: #f4c430; font-weight: 600; cursor: pointer; font-size: 14px;">
+                    <span class="sigle">🎯</span>
+                    <span class="text">Confirmer la réservation</span>
+                    <span class="price" style="display: block; font-size: 12px; color: #666; margin-top: 5px;">25 DT / Jour</span>
+                </button>
+            </footer>
+        </form>
 
 </body>
 </html>
