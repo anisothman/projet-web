@@ -5,6 +5,13 @@ body {
     background-color: #f5f5f5;
 }
 
+#error-message {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 14px;
+    white-space: pre-line;
+}
+
 .page-entiere {
     width: 100%;
     min-height: 100vh;
