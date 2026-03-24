@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <title>Page de Connexion</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-    
-
-
     <link rel="stylesheet" href="login.css">
 </head>
 
@@ -17,7 +14,7 @@
         <div class="boite-connexion">
 
             <div class="logo">
-                <img src="logo.png" alt="Logo"> <!-- Ensure logo.png exists -->
+                <img src="logo.png" alt="Logo">
             </div>
 
             <h1 class="titre">Bienvenue</h1>
@@ -26,21 +23,20 @@
             <form id="loginForm">
 
                 <div class="groupe-input">
-                    <label for="email">Email</label> <!-- Added for attribute -->
+                    <label for="email">Email</label>
                     <input id="email" type="email" name="email" placeholder="votre.email@example.com" required>
                 </div>
 
                 <div class="groupe-input">
-                    <label for="password">Mot de passe</label> <!-- Added for attribute -->
+                    <label for="password">Mot de passe</label>
                     <input id="password" type="password" name="password" placeholder="••••••••" required>
                 </div>
+
                 <div>
                     <p id="error-message"></p>
                 </div>
 
-                <button type="button" id="login-button" class="bouton-connexion">SE CONNECTER
-                
-            </button>
+                <button type="button" id="login-button" class="bouton-connexion">SE CONNECTER</button>
 
             </form>
 
@@ -53,4 +49,5 @@
 
 </body>
 <script src="../back/login.js"></script>
+
 </html>
