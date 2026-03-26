@@ -51,7 +51,10 @@ header h1 {
 /* Input Fields */
 .group input[type="text"],
 .group input[type="email"],
-.group input[type="tel"] {
+.group input[type="tel"],
+.group input[type="date"],
+.group input[type="time"],
+.group select {
     width: 100%;
     padding: 12px;
     margin-top: 5px;
@@ -65,9 +68,16 @@ header h1 {
 
 .group input[type="text"]:focus,
 .group input[type="email"]:focus,
-.group input[type="tel"]:focus {
+.group input[type="tel"]:focus,
+.group input[type="date"]:focus,
+.group input[type="time"]:focus,
+.group select:focus {
     outline: 2px solid #f4c430;
     background: #fff;
+}
+
+.group select {
+    cursor: pointer;
 }
 
 /* Drinks Selection */
@@ -270,7 +280,10 @@ header h1 {
 
     .group input[type="text"],
     .group input[type="email"],
-    .group input[type="tel"] {
+    .group input[type="tel"],
+    .group input[type="date"],
+    .group input[type="time"],
+    .group select {
         padding: 10px;
     }
 
