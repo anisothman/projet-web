@@ -68,7 +68,7 @@
             <p style="color: #777; margin-bottom: 0; font-size: 14px;">Un environnement spacieux conçu pour votre productivité.</p>
         </header>
 
-        <form>
+        <form id="reservationForm">
             <div class="form-container">
                 <div class="section">
                     <div class="group">
@@ -101,13 +101,22 @@
                         Votre Machroub préféré
                     </label>
                     <div class="drinks">
-                        <label class="drink"><input type="radio" name="m" checked><span>☕ Café</span></label>
-                        <label class="drink"><input type="radio" name="m"><span>🍵 Thé</span></label>
-                        <label class="drink"><input type="radio" name="m"><span>🥤 Jus</span></label>
+                        <label class="drink"><input type="radio" name="m" value="cafe" checked ><span>☕ Café</span></label>
+                        <label class="drink"><input type="radio" name="m" value="the"><span>🍵 Thé</span></label>
+                        <label class="drink"><input type="radio" name="m" value="jus"><span>🥤 Jus</span></label>
                     </div>
                 </div>
             </div>
-
+            <div class="group">
+                    <label>
+                        <span class="sigle">📅</span>
+                        Date, heure et durée de réservation
+                    </label>
+                    <input type="date" id="reservationDate" name="reservationDate" required>
+                    <input type="time" id="reservationTime" name="reservationTime" required>
+                    <input type="text" id="reservationDuration" name="reservationDuration" required placeholder="la duree en h ">
+                    <div id="heureFin" style="font-size: 13px; color: #f4c430; font-weight: 600; padding: 4px 12px;"></div>
+                </div>
            
             <div class="map">
                 <label>
@@ -139,7 +148,7 @@
                         <div class="seats" data-zone="alpha">
                             <div class="seat free" data-seat="A1" title="Place A1 - Disponible">A1</div>
                             <div class="seat free" data-seat="A2" title="Place A2 - Disponible">A2</div>
-                            <div class="seat occupied" data-seat="A3" title="Place A3 - Occupée">A3</div>
+                            <div class="seat free" data-seat="A3" title="Place A3 - Disponible">A3</div>
                             <div class="seat free" data-seat="A4" title="Place A4 - Disponible">A4</div>
                             <div class="seat free" data-seat="A5" title="Place A5 - Disponible">A5</div>
                             <div class="seat free" data-seat="A6" title="Place A6 - Disponible">A6</div>
@@ -153,7 +162,7 @@
                         <div class="seats" data-zone="beta">
                             <div class="seat free" data-seat="B1" title="Place B1 - Disponible">B1</div>
                             <div class="seat free" data-seat="B2" title="Place B2 - Disponible">B2</div>
-                            <div class="seat occupied" data-seat="B3" title="Place B3 - Occupée">B3</div>
+                            <div class="seat free" data-seat="B3" title="Place B3 - Disponible">B3</div>
                             <div class="seat free" data-seat="B4" title="Place B4 - Disponible">B4</div>
                             <div class="seat free" data-seat="B5" title="Place B5 - Disponible">B5</div>
                             <div class="seat free" data-seat="B6" title="Place B6 - Disponible">B6</div>
@@ -170,7 +179,7 @@
                             <div class="seat free" data-seat="C1" title="Place C1 - Disponible">C1</div>
                             <div class="seat free" data-seat="C2" title="Place C2 - Disponible">C2</div>
                             <div class="seat free" data-seat="C3" title="Place C3 - Disponible">C3</div>
-                            <div class="seat occupied" data-seat="C4" title="Place C4 - Occupée">C4</div>
+                            <div class="seat free" data-seat="C4" title="Place C4 - Disponible">C4</div>
                             <div class="seat free" data-seat="C5" title="Place C5 - Disponible">C5</div>
                             <div class="seat free" data-seat="C6" title="Place C6 - Disponible">C6</div>
                         </div>
@@ -187,6 +196,9 @@
                 </button>
             </footer>
         </form>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../back/supabase-client.js"></script>
+<script src="../back/place.js"></script>
+<script src="../back/reservation.js"></script>
 </body>
 </html>
