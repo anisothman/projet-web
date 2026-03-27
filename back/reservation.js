@@ -35,7 +35,7 @@ document.getElementById('reservationForm').addEventListener('submit', async func
     // ÉTAPE 2 : Calculer l'heure de fin
     // ==============================
 
-    const heureFin = new Date(`${date}T${heure}`);
+    const heureFin = new Date(`${date}T${heure}:00Z`);
     heureFin.setHours(heureFin.getHours() + Math.floor(duree));
     heureFin.setMinutes(heureFin.getMinutes() + (duree % 1) * 60);
 
