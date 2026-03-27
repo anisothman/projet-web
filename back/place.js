@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ============ CHARGER SIÈGES OCCUPÉS ============
     async function chargerSiegesOccupes() {
-        const maintenant = new Date();
-
+        const now = new Date().toISOString();
         const { data, error } = await db
             .from('reservations')
             .select('seat')
+            .gte('heure_fin', now);
 
         if (error) { console.error(error); return; }
 
