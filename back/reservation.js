@@ -13,6 +13,7 @@ document.getElementById('reservationForm').addEventListener('submit', async func
     const email      = document.getElementById('email').value;
     const telephone  = document.getElementById('phone').value;
     const boisson    = document.querySelector('input[name="m"]:checked').value;
+    const reclamation = document.getElementById('complaint').value.trim();
     const date       = document.getElementById('reservationDate').value;
     const heure      = document.getElementById('reservationTime').value;
     const duree      = parseFloat(document.getElementById('reservationDuration').value);
@@ -38,6 +39,8 @@ document.getElementById('reservationForm').addEventListener('submit', async func
         date_reservation: date,
         heure_debut    : heure,
         duree          : duree,
+        reclamation    : reclamation || null,
+        reclamation_status: reclamation ? 'nouvelle' : null,
         heure_fin      : heureFin.toISOString()
     });
 
@@ -53,6 +56,6 @@ document.getElementById('reservationForm').addEventListener('submit', async func
         this.reset();
         document.getElementById('heureFin').textContent = '';
         
-        chargerSiegesOccupes();
+        window.chargerSiegesOccupes?.();
     }
 });

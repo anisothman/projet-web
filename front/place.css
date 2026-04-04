@@ -66,12 +66,31 @@ header h1 {
     transition: all 0.3s ease;
 }
 
+.group textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 14px;
+    border: none;
+    background: #f1f1f1;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 13px;
+    resize: vertical;
+    min-height: 90px;
+    box-sizing: border-box;
+}
+
 .group input[type="text"]:focus,
 .group input[type="email"]:focus,
 .group input[type="tel"]:focus,
 .group input[type="date"]:focus,
 .group input[type="time"]:focus,
 .group select:focus {
+    outline: 2px solid #f4c430;
+    background: #fff;
+}
+
+.group textarea:focus {
     outline: 2px solid #f4c430;
     background: #fff;
 }

@@ -64,7 +64,21 @@ body {
     box-sizing: border-box;
 }
 
+.groupe-input select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 25px;
+    border: none;
+    background: #f1f1f1;
+    box-sizing: border-box;
+}
+
 .groupe-input input:focus {
+    outline: 2px solid #f4c430;
+}
+
+.groupe-input select:focus {
     outline: 2px solid #f4c430;
 }
 

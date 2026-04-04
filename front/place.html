@@ -6,7 +6,6 @@
     <title>Réservation de Poste - Espace VIP</title>
     <link rel="stylesheet" href="place.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-    <script src="../back/app.js"></script>
     <style>
         body {
             margin: 0;
@@ -61,7 +60,12 @@
     <div class="boite-reservation">
         <header style="text-align: center; margin-bottom: 30px;">
             <div class="logo">
-                <img src="logo.png" alt="Logo">
+                <a href="index.html" title="Retour accueil">
+                    <img src="logo.png" alt="Logo">
+                </a>
+            </div>
+            <div style="display: flex; justify-content: center; margin-bottom: 12px;">
+                <button type="button" id="logoutBtn" style="border: none; border-radius: 20px; padding: 8px 14px; background: #323232; color: #fff; cursor: pointer;">Deconnexion</button>
             </div>
             <div style="font-size: 18px; color: #f4c430; font-weight: 600; margin-bottom: 10px;">✨ ESPACE VIP</div>
             <h1 style="margin: 10px 0; color: #333; font-size: 24px; font-weight: 700;">Réservez votre poste de travail</h1>
@@ -105,6 +109,14 @@
                         <label class="drink"><input type="radio" name="m" value="the"><span>🍵 Thé</span></label>
                         <label class="drink"><input type="radio" name="m" value="jus"><span>🥤 Jus</span></label>
                     </div>
+                </div>
+
+                <div class="group">
+                    <label for="complaint">
+                        <span class="sigle">📝</span>
+                        Réclamation ou remarque (optionnel)
+                    </label>
+                    <textarea id="complaint" name="complaint" rows="3" placeholder="Partagez votre remarque ici..."></textarea>
                 </div>
             </div>
             <div class="group">
@@ -196,9 +208,8 @@
                 </button>
             </footer>
         </form>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../back/supabase-client.js"></script>
-<script src="../back/place.js"></script>
-<script src="../back/reservation.js"></script>
+    <script src="../back/supabase-client.js"></script>
+    <script src="../back/place.js"></script>
+    <script src="../back/reservation.js"></script>
 </body>
 </html>

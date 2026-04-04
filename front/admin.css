@@ -101,6 +101,20 @@ td {
     font-size: 13px;
 }
 
+.reclamation-cell {
+    max-width: 220px;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+}
+
+td select {
+    padding: 6px 10px;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
 tr:hover {
     background: #fff8dc;
 }

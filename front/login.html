@@ -14,14 +14,26 @@
         <div class="boite-connexion">
 
             <div class="logo">
-                <img src="logo.png" alt="Logo">
+                <a href="index.html" title="Retour accueil">
+                    <img src="logo.png" alt="Logo">
+                </a>
             </div>
 
             <h1 class="titre">Bienvenue</h1>
-            <p class="sous-titre">Travaillez mieux, mangez bien!</p>
+            <p class="sous-titre">Connectez-vous pour réserver une place ou accéder à l'administration.</p>
+            <p class="sous-titre" style="margin-top: -15px; font-size: 12px;">Compte admin demo: admin@espacevip.tn / Admin123!</p>
+            <p class="sous-titre" id="seat-hint" style="margin-top: -10px; font-size: 12px;"></p>
 
 
             <form id="loginForm">
+
+                <div class="groupe-input">
+                    <label for="role">Type de compte</label>
+                    <select id="role" name="role">
+                        <option value="client" selected>Utilisateur (Client)</option>
+                        <option value="admin">Administrateur</option>
+                    </select>
+                </div>
 
                 <div class="groupe-input">
                     <label>Email</label>
