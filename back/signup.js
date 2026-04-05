@@ -29,7 +29,8 @@ function verifierChamps() {
     return true;
 }
 
-signupBtn.addEventListener("click", async () => {
+signupBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
     if (verifierChamps()) {
         const { data, error } = await db.auth.signUp({
             email: email.value,

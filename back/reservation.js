@@ -39,8 +39,7 @@ document.getElementById('reservationForm').addEventListener('submit', async func
         date_reservation: date,
         heure_debut    : heure,
         duree          : duree,
-        reclamation    : reclamation || null,
-        reclamation_status: reclamation ? 'nouvelle' : null,
+        complaint      : reclamation || null,
         heure_fin      : heureFin.toISOString()
     });
 

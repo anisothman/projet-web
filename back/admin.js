@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td>${escapeHtml(r.heure_debut || '-')}</td>
                     <td>${escapeHtml(r.duree != null ? r.duree : '-')}</td>
                     <td>${escapeHtml(r.heure_fin || '-')}</td>
+                    <td>${escapeHtml(r.complaint || '-')}</td>
                     <td>${escapeHtml(r.created_at ? new Date(r.created_at).toLocaleString('fr-FR') : '-')}</td>
                 </tr>
             `;
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function loadReservations() {
         const { data, error } = await db
             .from('reservations')
-            .select('id, full_name, email, phone, machroub, seat, date_reservation, heure_debut, duree, heure_fin, created_at')
+            .select('id, full_name, email, phone, machroub, seat, date_reservation, heure_debut, duree, heure_fin, complaint, created_at')
             .order('date_reservation', { ascending: false })
             .order('heure_debut', { ascending: false });
 

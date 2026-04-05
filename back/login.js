@@ -46,7 +46,8 @@ async function verifierEmail() {
     return true;
 }
     
-loginButton.addEventListener('click', async () => {
+loginButton.addEventListener('click', async (e) => {
+    e.preventDefault();
     if (await verifierEmail()) {
         if (role.value === 'admin') {
             localStorage.setItem('role', 'admin');
