@@ -69,31 +69,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function renderTable(list) {
         if (!list.length) {
-            tableBody.innerHTML = '<tr><td colspan="8">Aucune reservation trouvee pour ce filtre.</td></tr>';
+            tableBody.innerHTML = '<tr><td colspan="10">Aucune reservation trouvee pour ce filtre.</td></tr>';
             return;
         }
 
         tableBody.innerHTML = list.map((r) => {
-            const status = r.reclamation_status || 'nouvelle';
-            const complaint = r.reclamation || '-';
             return `
                 <tr>
                     <td>${escapeHtml(r.full_name || '-')}</td>
                     <td>${escapeHtml(r.email || '-')}</td>
+                    <td>${escapeHtml(r.phone || '-')}</td>
+                    <td>${escapeHtml(r.machroub || '-')}</td>
                     <td>${escapeHtml(r.seat || '-')}</td>
                     <td>${escapeHtml(r.date_reservation || '-')}</td>
                     <td>${escapeHtml(r.heure_debut || '-')}</td>
-                    <td class="reclamation-cell">${escapeHtml(complaint)}</td>
-                    <td>
-                        <select data-id="${r.id}" class="status-select">
-                            <option value="nouvelle" ${status === 'nouvelle' ? 'selected' : ''}>Nouvelle</option>
-                            <option value="en_cours" ${status === 'en_cours' ? 'selected' : ''}>En cours</option>
-                            <option value="traitee" ${status === 'traitee' ? 'selected' : ''}>Traitee</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button data-id="${r.id}" class="save-status-btn">Sauvegarder</button>
-                    </td>
+                    <td>${escapeHtml(r.duree != null ? r.duree : '-')}</td>
+                    <td>${escapeHtml(r.heure_fin || '-')}</td>
+                    <td>${escapeHtml(r.created_at ? new Date(r.created_at).toLocaleString('fr-FR') : '-')}</td>
                 </tr>
             `;
         }).join('');
@@ -102,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function loadReservations() {
         const { data, error } = await db
             .from('reservations')
-            .select('id, full_name, email, seat, date_reservation, heure_debut, reclamation, reclamation_status')
+            .select('id, full_name, email, phone, machroub, seat, date_reservation, heure_debut, duree, heure_fin, created_at')
             .order('date_reservation', { ascending: false })
             .order('heure_debut', { ascending: false });
 
@@ -115,43 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
         reservations = data || [];
         applyFilters();
     }
-
-    async function saveStatus(reservationId) {
-        const select = document.querySelector(`select.status-select[data-id="${reservationId}"]`);
-        if (!select) {
-            return;
-        }
-
-        const nextStatus = select.value;
-
-        const { error } = await db
-            .from('reservations')
-            .update({ reclamation_status: nextStatus })
-            .eq('id', reservationId);
-
-        if (error) {
-            console.error(error);
-            alert('Impossible de mettre a jour le statut de reclamation.');
-            return;
-        }
-
-        reservations = reservations.map((r) => {
-            if (String(r.id) === String(reservationId)) {
-                return { ...r, reclamation_status: nextStatus };
-            }
-            return r;
-        });
-
-        alert('Statut de reclamation mis a jour.');
-        applyFilters();
-    }
-
-    tableBody.addEventListener('click', function (event) {
-        const target = event.target;
-        if (target.classList.contains('save-status-btn')) {
-            saveStatus(target.dataset.id);
-        }
-    });
 
     searchInput.addEventListener('input', applyFilters);
     dateFilter.addEventListener('change', applyFilters);
