@@ -15,62 +15,74 @@ if (seatHint && selectedSeat) {
     seatHint.textContent = `Place choisie: ${selectedSeat}. Connectez-vous pour terminer la reservation.`;
 }
 
-async function verifierEmail() {
+// 🔐 Fonction de cryptage simple (César +3)
+function hasherPassword(plainPassword) {
+    let result = "";
+    for (let i = 0; i < plainPassword.length; i++) {
+        result += String.fromCharCode(plainPassword.charCodeAt(i) + 3);
+    }
+    return result;
+}
+
+async function verifierClient() {
     errorMessage.textContent = "";
 
     if (!email.value || !password.value) {
-        errorMessage.textContent += "Veuillez remplir tous les champs!\n";
+        errorMessage.textContent = "Veuillez remplir tous les champs!";
         return false;
     }
 
+    // Connexion admin
     if (role.value === 'admin') {
         if (email.value === ADMIN_EMAIL && password.value === ADMIN_PASSWORD) {
             return true;
         }
-
-        errorMessage.textContent += "Identifiants admin invalides!\n";
+        errorMessage.textContent = "Identifiants admin invalides!";
         return false;
     }
 
-    const checkmail = async () => {
-        return await db.from('Client').select('email').eq('email', email.value);
-    };
-    const result = await checkmail();
-    if (result.error || result.data.length === 0) {
-        errorMessage.textContent += "Adresse e-mail client non trouvée!\n";
-    }
+    // Récupérer le client par email + password crypté
+    const { data, error } = await db
+        .from('Client')
+        .select('email, password')
+        .eq('email', email.value)
+        .single();
 
-    if (errorMessage.textContent) {
+    if (error || !data) {
+        errorMessage.textContent = "Adresse e-mail client non trouvée!";
         return false;
     }
+
+    // 🔐 Comparer le mot de passe crypté
+    if (hasherPassword(password.value) !== data.password) {
+        errorMessage.textContent = "Mot de passe incorrect!";
+        return false;
+    }
+
     return true;
 }
-    
+
 loginButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    if (await verifierEmail()) {
-        if (role.value === 'admin') {
-            localStorage.setItem('role', 'admin');
-            localStorage.setItem('currentUserEmail', email.value);
-            window.location.href = 'admin.html';
-            return;
-        }
 
-        const { data, error } = await db.auth.signInWithPassword({
-            email: email.value,
-            password: password.value,
-        });
-        if (error) {
-            alert("Erreur lors de la connexion: " + error.message);
-        } else {
-            localStorage.setItem('role', 'user');
-            localStorage.setItem('currentUserEmail', email.value);
-            alert("Connexion réussie!");
-            const destination = selectedSeat
-                ? `place.html?seat=${encodeURIComponent(selectedSeat)}`
-                : 'index.html';
-            window.location.href = destination;
-        }
+    const isValid = await verifierClient();
+    if (!isValid) return;
+
+    // Connexion admin
+    if (role.value === 'admin') {
+        localStorage.setItem('role', 'admin');
+        localStorage.setItem('currentUserEmail', email.value);
+        window.location.href = 'admin.html';
+        return;
     }
 
+    // Connexion client réussie
+    localStorage.setItem('role', 'user');
+    localStorage.setItem('currentUserEmail', email.value);
+
+    const destination = selectedSeat
+        ? `place.html?seat=${encodeURIComponent(selectedSeat)}`
+        : 'index.html';
+
+    window.location.href = destination;
 });
