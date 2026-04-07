@@ -1,6 +1,5 @@
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-const role = document.getElementById('role');
 const loginButton = document.getElementById('login-button');
 const errorMessage = document.getElementById('error-message');
 const seatHint = document.getElementById('seat-hint');
@@ -32,8 +31,8 @@ async function verifierClient() {
         return false;
     }
 
-    // Connexion admin
-    if (role.value === 'admin') {
+    // Connexion admin (détection automatique par e-mail)
+    if (email.value === ADMIN_EMAIL) {
         if (email.value === ADMIN_EMAIL && password.value === ADMIN_PASSWORD) {
             return true;
         }
@@ -68,8 +67,8 @@ loginButton.addEventListener('click', async (e) => {
     const isValid = await verifierClient();
     if (!isValid) return;
 
-    // Connexion admin
-    if (role.value === 'admin') {
+    // Connexion admin (détection automatique par e-mail)
+    if (email.value === ADMIN_EMAIL) {
         localStorage.setItem('role', 'admin');
         localStorage.setItem('currentUserEmail', email.value);
         window.location.href = 'admin.html';

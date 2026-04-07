@@ -264,7 +264,7 @@
         </div>
 
         <div class="status-bar" aria-live="polite">
-            <span id="welcomeState">Mode visiteur: toutes les places sont presentees pour visualiser la plateforme.</span>
+            <span id="welcomeState">Mode visiteur: toutes les places sont presentees, y compris les places deja reservees.</span>
             <span id="seatCount">18 places affichees</span>
         </div>
 
@@ -376,7 +376,7 @@
         });
 
         async function chargerPlacesIndisponibles() {
-            if (role !== 'user' || typeof db === 'undefined') {
+            if (typeof db === 'undefined') {
                 return;
             }
 
