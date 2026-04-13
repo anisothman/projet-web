@@ -364,15 +364,15 @@
 
         document.getElementById('startReservation').addEventListener('click', function () {
             if (role === 'admin') {
-                window.location.href = 'admin.html';
+                window.location.href = 'front/admin.html';
                 return;
             }
 
             if (role === 'user') {
-                window.location.href = 'place.html';
+                window.location.href = 'front/place.html';
                 return;
             }
-            window.location.href = 'login.html';
+            window.location.href = 'front/login.html';
         });
 
         async function chargerPlacesIndisponibles() {
@@ -415,11 +415,11 @@
                 }
 
                 if (role === 'user') {
-                    window.location.href = `place.html?seat=${encodeURIComponent(seat)}`;
+                    window.location.href = `front/place.html?seat=${encodeURIComponent(seat)}`;
                     return;
                 }
 
-                window.location.href = `login.html?seat=${encodeURIComponent(seat)}`;
+                window.location.href = `front/login.html?seat=${encodeURIComponent(seat)}`;
             });
         });
 
